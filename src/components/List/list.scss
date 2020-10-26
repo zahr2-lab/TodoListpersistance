@@ -1,0 +1,48 @@
+.list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:100%;
+  overflow: auto;
+
+  &-item{
+  flex: 1 1 100%;
+  display: flex;
+  margin:.5rem 2rem;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid tomato;
+  border-radius: .5rem;
+  overflow-wrap: break-word ;
+  }
+  
+  &-check{
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: .5rem;
+}
+  
+  &-text{
+  width:calc(100% - 2rem ) !important;
+  flex: 1 1;
+  padding: .5rem ;
+  font-size: 1.2rem;
+  color: tomato;
+  overflow-wrap:hidden;
+  }
+  &-editable{
+    width:calc(100% - 2rem ) !important;
+    padding: .5rem;
+    font-size: 1.2rem;
+    color:tomato;
+    border: thick solid tomato; 
+    border-radius: .5rem;
+    overflow-wrap:hidden;
+  }
+  }
+  
+.complete{
+  text-decoration: line-through;
+  color: black;
+}  
+  

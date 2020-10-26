@@ -1,0 +1,27 @@
+.mood{
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 3.2rem;
+  display: flex;
+  justify-content: flex-start;
+  border:1px solid gray;
+  background: white;
+  flex-direction: row;
+  border-radius:3rem;
+  
+  &-icon{
+    padding: .2rem;
+  }
+  &-btn{
+    margin: .1rem;
+    width: 5rem;
+    border-radius:3rem; 
+    background: white;
+    box-shadow: 0px 0px 2px 3px tomato ;
+  }
+}
+.day{
+  flex-direction: row-reverse;
+
+}

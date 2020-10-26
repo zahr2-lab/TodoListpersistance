@@ -1,0 +1,15 @@
+.input{
+  height: 3rem;
+  border: 1px solid tomato;
+  border-radius: .5rem;
+  margin: 1rem ;
+  color: tomato;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background: #eee;
+  width: 90% !important;
+}
+
+input:focus{
+  outline: none;
+}
