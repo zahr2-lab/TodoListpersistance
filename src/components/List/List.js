@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import "./list.scss";
-import { atom, atomFamily, useRecoilValue, useRecoilState } from "recoil";
+import {
+  atom,
+  atomFamily,
+  useRecoilValue,
+  useRecoilState,
+  useSetRecoilState
+} from "recoil";
 
 export const tasksState = atom({
   key: "tasks",
@@ -20,10 +26,18 @@ const ListItem = ({ task }) => {
   const [{ id, todo, complete }, setTask] = useRecoilState(taskState(task.id));
   const [editable, setEditable] = useState(false);
   const [value, setValue] = useState(task.todo);
+  const setTasks = useSetRecoilState(tasksState);
 
   const focusOut = (value) => {
     setEditable(false);
-    setTask({ id, complete, todo: value });
+    value !== ""
+      ? setTask({ id, complete, todo: value })
+      : setTasks((tasks) => {
+          const newTaskList = tasks.filter((obj) => {
+            return obj.id !== task.id;
+          });
+          return newTaskList;
+        });
   };
   return (
     <div className="list-item">
