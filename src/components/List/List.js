@@ -1,12 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./list.scss";
-import {
-  atom,
-  atomFamily,
-  useRecoilValue,
-  useRecoilState,
-  useSetRecoilState
-} from "recoil";
+import { atom, atomFamily, useRecoilState, useSetRecoilState } from "recoil";
 
 export const tasksState = atom({
   key: "tasks",
@@ -66,7 +60,17 @@ const ListItem = ({ task }) => {
 };
 
 export default function List() {
-  const tasks = useRecoilValue(tasksState);
+  const [tasks, setTasks] = useRecoilState(tasksState);
+
+  useEffect(() => {
+    localStorage.getItem("tasks") &&
+      setTasks(JSON.parse(localStorage.getItem("tasks")));
+  }, [setTasks]);
+
+  useEffect(() => {
+    localStorage.getItem("tasks") &&
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div className="list">
